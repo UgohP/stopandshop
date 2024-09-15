@@ -1,0 +1,60 @@
+{% extends 'index.html'%}
+
+{%block title%}Blog from : {{blog.business_name|capfirst}}{%endblock%}
+{% block content%}
+{% load static%}
+<link rel="stylesheet" href="{% static 'blog.css'%}">
+<br>
+<div class="slideshow-container">
+    <center>
+        <!-- Full-width images with number and caption text -->
+        {% if blog.imageURL %}
+        <div class="mySlides">
+            <img src="{{blog.imageURL}}" style="width:70%">
+        </div>
+        {%endif%}
+        
+        {% if blog.image2URL %}
+        <div class="mySlides">
+            <img src="{{blog.image2URL}}" style="width:70%">
+        </div>
+        {%endif%}
+        
+        {% if blog.image3URL %}
+        <div class="mySlides">
+            <img src="{{blog.image3URL}}" style="width:70%">
+        </div>
+        {%endif%}
+
+      {% if blog.image4URL %}
+      <div class="mySlides">
+          <img src="{{blog.image4URL}}" style="width:70%">
+        </div>
+        {%endif%}
+        
+        {% if blog.image5URL %}
+        <div class="mySlides">
+            <img src="{{blog.image5URL}}" style="width:70%">
+        </div>
+        {%endif%}
+    </center>
+    
+    
+    <!-- Next and previous buttons -->
+    {% if blog.image2URL %}
+    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+    <a class="next" onclick="plusSlides(1)">&#10095;</a>
+    {%endif%}
+    
+</div>
+<div class="text">{{blog.business_name|capfirst}}</div>
+<br>
+<br>
+
+<div class="desc">{{blog.text}}</div>
+<br>
+
+<a href="https://wa.me/{{blog.business_whatsapp_number}}"><input class="input" value="Chat On WhatsApp"></a>
+
+<script src="{% static 'blog.js'%}"></script>
+{% endblock%}

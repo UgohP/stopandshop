@@ -1,0 +1,131 @@
+body {
+    height: 100vh;
+    /* background-color: black; */
+    /* background-image: url("img/pin1.jpg"); */
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.5)50%, rgba(0, 0, 0, 0.5)50%), url(img/pin1.jpg);
+    /* background-repeat: no-repeat; */
+    overflow-x: hidden;
+    overflow-y: scroll;
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+    margin: 10px 10px;
+}
+
+/* nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: white;
+    position: sticky;
+    top: 0;
+    left: 0;
+    width: 90%;
+} */
+
+#logo {
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.06);
+    z-index: 999;
+    padding: 0px 10px;
+    display: flex;
+    float: left;
+    align-items: center;
+    /* height: 100px; */
+    /* height: 30vh; */
+    /* float: left; */
+    background-color: white;
+    width: 90%;
+}
+
+#logo h2 {
+    font-size: 25px;
+    margin: 0;
+    color: #0000ff;
+    font-family: sans-serif serif;
+}
+
+#logo img {
+    max-width: 100px;
+    margin-right: 10px;
+}
+
+
+/* Style the button that is used to open and close the collapsible content */
+.collapsible {
+    margin-top: 10px;
+    background-color: #0000ff;
+    color: white;
+    cursor: pointer;
+    padding: 18px;
+    width: 95%;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 15px;
+    font-family: sans-serif;
+}
+
+.collapsible:after {
+    content: '\02795';
+
+    /* Unicode character for "plus" sign (+) */
+    font-size: 13px;
+    color: white;
+    float: right;
+    margin-left: 5px;
+}
+
+.active:after {
+    content: "\2796";
+    /* Unicode character for "minus" sign (-) */
+}
+
+
+/* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+.active,
+.collapsible:hover {
+    background-color: lightblue;
+    /* color: #0000ff; */
+}
+
+/* Style the collapsible content. Note: hidden by default */
+.content {
+    padding: 0 18px;
+    display: none;
+    overflow: hidden;
+    background-color: #f1f1f1;
+    width: 85%;
+    font-family: sans-serif;
+    /* max-height: 0; */
+    /* transition: max-height 0.2s ease-out; */
+}
+
+textarea {
+    width: 100%;
+    height: 150px;
+    padding: 12px 20px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    resize: none;
+}
+
+input[type=submit] {
+    background-color: blue;
+    color: white;
+    padding: 14px 20px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+}
+
+form {
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 20px;
+}
+
+.message {
+    background-color: lightblue;
+    border-left: 6px solid #0000ff;
+}

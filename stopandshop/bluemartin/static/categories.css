@@ -1,0 +1,255 @@
+
+#search {
+    background: navy;
+    padding: 5px 5px;
+    width: 77%;
+    /* box-shadow: 0 5px 15px rgba(0, 0, 0, 0.06); */
+    /* z-index: 999; */
+    position: sticky;
+    top: 0;
+    left: 0;
+    margin-left: 22%;
+    overflow: hidden;
+}
+
+#myInput {
+    /* Add a search icon to input */
+    background-position: 10px 12px;
+    /* Position the search icon */
+    background-repeat: no-repeat;
+    /* Do not repeat the icon image */
+    width: 90%;
+    /* Full-width */
+    font-size: 16px;
+    /* Increase font-size */
+    padding: 12px 20px 12px 10px;
+    /* Add some padding */
+    border: 1px solid blue;
+    /* Add a grey border */
+    margin-bottom: 12px;
+    /* Add some space below the input */
+    /* margin-left: 32%; */
+}
+
+::placeholder {
+    color: blue;
+}
+
+/* Style the tab */
+.tab {
+    color: navy;
+    background-color: lightblue;
+    width: 100%;
+}
+
+.tab a {
+    text-decoration: none;
+}
+
+/* Style the buttons that are used to open the tab content */
+.tab button {
+    text-align: center;
+    display: block;
+    background-color: inherit;
+    color: navy;
+    font-size: 15px;
+    font-weight: 900;
+    padding: 22px 3px;
+    width: 100%;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+/* Change background color of buttons on hover */
+/* Create an active/current "tab button" class */
+.tab button:hover,
+.tab button.active {
+    background-color: navy;
+    color: white;
+}
+
+/* Style the tab content */
+.tabcontent {
+    padding: 0px 5px;
+    width: 70%;
+    margin-left: 22%;
+    border-left: none;
+    top: 0;
+}
+
+#category {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin: 20px 20px;
+}
+
+#category a {
+    text-decoration: none;
+}
+
+#category .fash-box {
+    width: 180px;
+    text-align: center;
+    padding: 25px 15px;
+    box-shadow: 20px 20px 34px rgba(0, 0, 0, 0.03);
+    border: 1px solid blue;
+    border-radius: 4px;
+    margin: 15px 0;
+    text-decoration: none;
+    height: 150px;
+}
+
+#category .fash-box:hover {
+    box-shadow: 10px 10px 54px rgba(208, 194, 243, 0.03);
+    background-color: blue;
+
+}
+
+#fashion .fash-box img {
+    width: 100%;
+    margin-bottom: 10px;
+    border: 2px solid transparent;
+    border-radius: 5px;
+    height: 100px;
+}
+
+#fashion .fash-box h6 {
+    display: inline-block;
+    font-weight: bolder;
+    font-size: large;
+    font-family: 'Times New Roman';
+    margin-top: 10px;
+    padding: 9px 8px 6px 8px;
+    line-height: 1;
+    border-radius: 4px;
+    color: white;
+    background-color: blue;
+}
+
+
+
+#product1 {
+    text-align: center;
+}
+
+
+#product1 .pro-container {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 20px;
+    flex-wrap: wrap;
+
+}
+
+#product1 .pro-container a {
+    text-decoration: none;
+}
+
+#product1 .pro {
+    width: 23%;
+    min-width: 250px;
+    padding: 20px 50px;
+    border-radius: 15px;
+    margin: 15px 0px;
+    margin: auto;
+    font-family: arial;
+    transition: 0.2s ease;
+}
+
+#product .pro:hover {
+    box-shadow: 20px 20px 30px rgba(0, 0, 0, 0.6);
+}
+
+#product1 .pro .des {
+    text-align: start;
+    padding: 2px 0 0 0px;
+}
+
+#product1 .pro .des span {
+    color: lightblue;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+#product1 .pro .des h5 {
+    padding-top: 7px;
+    color: #1a1a1a;
+    font-size: 14px;
+}
+
+#product1 .pro .des h4 {
+    padding-top: 5px;
+    font-size: 13px;
+    font-weight: 700;
+    color: #0700c4;
+}
+
+#icon {
+    background-color: green;
+    color: white;
+    margin-top: 2px;
+    padding: 10px 0px;
+    border: none;
+    color: white;
+    text-align: center;
+    cursor: pointer;
+    width: 100%;
+    font-size: 13px;
+}
+
+#icon:hover {
+    background-color: white;
+    color: green;
+}
+
+#pro_img {
+    width: 80%;
+}
+
+
+#category {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+#category .cat-box {
+    width: 150px;
+    text-align: center;
+    padding: 30px 20px;
+    box-shadow: 20px 20px 34px rgba(0, 0, 0, 0.03);
+    border: 1px solid blue;
+    border-radius: 4px;
+    margin: 15px 0;
+}
+
+#category .cat-box:hover {
+    box-shadow: 10px 10px 54px rgba(208, 194, 243, 0.03);
+    background-color: blue;
+
+}
+
+#category .cat-box img {
+    width: 100%;
+    margin-bottom: 10px;
+    border: 2px solid transparent;
+    border-radius: 5px;
+    height: 100px;
+    object-fit: cover;
+}
+
+#category .cat-box h6 {
+    display: inline-block;
+    font-family: 'Times New Roman';
+    margin-top: 10px;
+    padding: 9px 8px 6px 8px;
+    line-height: 1;
+    border-radius: 4px;
+    color: white;
+    background-color: blue;
+}

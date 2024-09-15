@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Are you a an online vendor, or someone offering valuable services such as
+    electrician work, hair dressing, tailoring, and more? Buy and Sell on BlueMartin; join our vibrant commumity at BlueMartin and showcase
+    your goods and services to a wide audience. Visit the BlueMartin Technology Online Vendor Website to experience a seamless online shopping
+    experience. ">
+    <meta name="keywords" content="Buy and Sell on BlueMartin">
+    <meta name="author" content="BlueMartin Technology">
+    <!-- Add other meta tags here as needed -->
+
+    <!-- Open Graph meta tags for social sharing (example) -->
+    <meta property="og:title" content="BlueMartin">
+    <meta property="og:description" content="Are you a an online vendor, or someone offering valuable services such as
+    electrician work, hair dressing, tailoring, and more? Buy and Sell on BlueMartin; join our vibrant commumity at BlueMartin and showcase
+    your goods and services to a wide audience. Visit the BlueMartin Technology Online Vendor Website to experience a seamless online shopping
+    experience.">
+    <meta property="og:image" content="{% static 'img/blue.png'%}">
+    <meta property="og:url" content="https://bluemartin.ng">
+
+    <!-- Favicon (icon in the browser tab) -->
+    <link rel="icon" type="image/png" href="{% static 'img/blue.png'%}">
+
+</head>
+
+<body>
+    <!-- Your page content here -->
+</body>
+
+</html>
+
+<link rel="stylesheet" href="{% static 'bluemartin.css'%}">
+<title>BLUEMARTIN TECHNOLOGY</title>
+</head>
+
+<body>
+    <nav>
+        <div id="logo">
+            <img style="width: 15%;" src="{% static 'img/blue.png'%}" alt="BLUEMARTIN TECHNOLOGY" />
+            <h2>BlueMartin<br>Technology</h2>
+        </div>
+    </nav>
+
+    <div class="body">
+        <button type="button" class="collapsible">
+            <h3>BLUEMARTIN ONLINE VENDOR WEBSITE</h3>
+        </button>
+        <div class="content">
+            <p>Visit the BlueMartin Technology Online Vendor Website to experience a seamless online shopping
+                experience.
+                <br><br>Click <a href="{% url 'home' %}">here</a> to access the BLUEMARTIN online vendors website
+            </p>
+        </div>
+
+        <button type="button" class="collapsible">
+            <h3>SELL ON BLUEMARTIN</h3>
+        </button>
+        <div class="content">
+            <p><strong>
+                    <br>
+                    Are you a WhatApp vendor, an online seller, or someone offering valuable services such as
+                    electrician
+                    work, hair dressing, tailoring, and more?<br>Join our vibrant commumity at BlueMartin and showcase
+                    your goods and services to a wide audience.
+                </strong>
+            </p>
+            <br>
+            <h2><strong>Why Choose <span style="color: blue;"><strong>BLUEMARTIN</span> ?</strong></h2>
+            <ul>
+                <li>
+                    <h3><strong>Reach a Wider Audience:</strong></h3>
+                </li>
+                <p>Our platform connects you with customers actively seeking your products and services.</p>
+
+                <li>
+                    <h3><strong>Simple and Direct:</strong></h3>
+                </li>
+                <p>We make it easy for potential customers to contact you through WhatsApp.</p>
+
+                <li>
+                    <h3><strong>Promote Your Brand:</strong></h3>
+                </li>
+                <p>Showcase your offerings and build your brand presence on BlueMartin.</p>
+            </ul>
+            <br>
+            <h3><strong>How to Get Started</strong></h3>
+            <p>
+                Click the button below to apply and start your journey as a <span
+                    style="color: blue;"><strong>BLUEMARTIN</span> vendor. We look forward to helping you grow your
+                business and connect with new customers.
+                <br>
+                <center>
+                    <a href="{% url 'vendor_application' %}"><input type="button" value="Click here to apply"
+                            style="background-color: #0000ff; color: white;"></a>
+                </center>
+            </p>
+        </div>
+
+        <button type="button" class="collapsible">
+            <h3>ABOUT US</h3>
+        </button>
+        <div class="content">
+            <p>Welcome to <span style="color: blue;"><strong>BLUEMARTIN TECHNOLOGY</strong></span> where technology
+                meets
+                innovation. Our journey began with a passion for all
+                things tech and today, we stand as a leading force in web development, digital education, desktop
+                publishing, and tech support.<br><br>
+
+                <strong>Our Mission:</strong><br>
+                At <span style="color: blue;"><strong>BLUEMARTIN TECHNOLOGY</strong></span>, we're on a mission to
+                empower
+                individuals and businessess in cutting-edge technology solutions. We believe that the digital world
+                should
+                be accessible to everyone, and we're here to make that vision a reality.<br><br>
+            </p>
+        </div>
+
+        <button type="button" class="collapsible">
+            <h3>OUR SERVICES</h3>
+        </button>
+        <div class="content">
+            <ul>
+                <li><strong>Website Creation:</strong></li>
+                <p>At <span style="color: blue;"><strong>BLUEMARTIN TECHNOLOGY</strong></span>, we specialize in
+                    crafting
+                    stunning websites that cater to both personal and commercial needs. Whether you're an individual
+                    looking
+                    for persoanl blog or business in need of a e-commerce platform, we have custom solutions tailored
+                    just
+                    for you. Let's help you create your dream website!!!</p>
+
+                <li><strong>Website Training:</strong></li>
+                <p>Our training programs are disigned to demystify web development. we offer courses for beginners and
+                    advanced users alike, ensuring that you can create and manage your online presence with confidence
+                </p>
+
+                <li><strong>Desktop Publishing and Tech Support:</strong></li>
+                <p>Tech troubles? We're here to help. Our team provides expert desktop publishing services and
+                    comprehensive
+                    tech support. From troubleshooting to software installation, we've got your back.</p>
+
+                <li><strong>BLUEMARTIN Online Vendor Website:</strong></li>
+                <p>Explore our branch, BlueMartin Online Vendor Website, where we connect online vendors with their
+                    customers seamlessly. Discover a world of e-commerce possibilities with our platform</p>
+            </ul>
+        </div>
+
+        <div class="message">
+            <center>
+                {% for message in messages %}
+                <strong>
+                    <p>{{message}}</p>
+                </strong>
+                {% endfor %}
+            </center>
+        </div>
+
+        <button type="button" class="collapsible">
+            <h3>CONTACT US</h3>
+        </button>
+        <div class="content">
+            <br>
+            <h4>Don't hesitate to get in touch with us.</h4><br><br>
+
+            <form action="" method="post">
+                <h3>Any Complain or Feedback? Contact Us</h3>
+                {% csrf_token%}
+                {{form.as_p}}
+                <input type="submit" value="Submit">
+            </form>
+
+            <h4>Contact and follow us on our social media platforms</h4><br><br>
+            <a href="https://wa.me/08157981821"><img src="{% static 'img/whatsapp.png' %}" alt="whatsapp"
+                    width="20px"></a>
+            <a href="https://instagram.com/bluemartintechnology"><img src="{% static 'img/instagram.jpg' %}"
+                    alt="instagram" width="20px"></a>
+            <a href="https://x.com/bluemartintech"><img src="{% static 'img/x.jpg' %}" alt="" width="20px"></a>
+            <a href="www.linkedin.com/in/ugohpaschal"><img src="{% static 'img/linkedin.png' %}" alt=""
+                    width="20px"></a>
+            <a href="https://github.com/UgohP"><img src="{% static 'img/github.jpg' %}" alt="" width="20px"></a>
+            </ul>
+        </div>
+    </div>
+
+    <link rel="stylesheet" href="{% static 'blue.js' %}">
+</body>
+
+</html>
+<script src="{%static 'bluemartin.js'%}"></script>

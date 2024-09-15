@@ -1,0 +1,38 @@
+{% extends 'index.html'%}
+
+{%block title%}Blog from : {{blog.business_name|capfirst}}{%endblock%}
+{% block content%}
+{% load static%}
+<link rel="stylesheet" href="{% static 'blog.css'%}">
+<br>
+<div class="slideshow-container">
+    <center>
+        <!-- Full-width images with number and caption text -->
+        {% if blog_video.videoURL %}
+        <div class="mySlides">
+            <video controls width="320" height="240">
+                <source src="{{blog_video.videoURL}}" type="video/mp4">Your browser does not support the video tag.
+            </video>
+        </div>
+        {%endif%}
+    </center>
+
+
+    <!-- Next and previous buttons -->
+    {% if blog_video.video2URL %}
+    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+    <a class="next" onclick="plusSlides(1)">&#10095;</a>
+    {%endif%}
+
+</div>
+<div class="text">{{blog_video.business_name|capfirst}}</div>
+<br>
+<br>
+
+<div class="desc">{{blog_video.text}}</div>
+<br>
+
+<a href="https://wa.me/{{blog_video.business_whatsapp_number}}"><input class="input" value="Chat On WhatsApp"></a>
+
+<script src="{% static 'blog.js'%}"></script>
+{% endblock%}

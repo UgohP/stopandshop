@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {% load static %}
+    {% block meta%}
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Are you a an online vendor, or someone offering valuable services such as
+    electrician work, hair dressing, tailoring, and more? Buy and Sell on BlueMartin; join our vibrant commumity at BlueMartin and showcase
+    your goods and services to a wide audience. Visit the BlueMartin Technology Online Vendor Website to experience a seamless online shopping
+    experience. ">
+    <meta name="keywords" content="Buy and Sell on BlueMartin">
+    <meta name="author" content="BlueMartin Technology">
+
+    <!-- Open Graph meta tags for social sharing (example) -->
+    <meta property="og:title" content="BlueMartin">
+    <meta property="og:description" content="Are you a an online vendor, or someone offering valuable services such as
+electrician work, hair dressing, tailoring, and more? Buy and Sell on BlueMartin; join our vibrant commumity at BlueMartin and showcase
+your goods and services to a wide audience. Visit the BlueMartin Technology Online Vendor Website to experience a seamless online shopping
+experience.">
+    <meta property="og:image" content="{% static 'img/blue.png'%}">
+    <meta property="og:url" content="https://bluemartin.ng">
+    {%endblock%}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>{%block title%}{% endblock%} | BlueMartin</title>
+    <link rel="stylesheet" href="{% static 'homepage.css' %}">
+
+    <!-- Favicon (icon in the browser tab) -->
+    <link rel="icon" type="image/png" href="{% static 'img/blue.png'%}">
+</head>
+
+<body>
+    <nav>
+        <div class="container" onclick="openNav()">
+            <div class="bar1"></div>
+            <div class="bar2"></div>
+            <div class="bar3"></div>
+        </div>
+
+        <div id="myNav" class="overlay">
+            <!-- Button to close the overlay navigation -->
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+            <ul id="nav">
+                <li><a href="{% url 'bluemartin' %}">Index</a></li>
+                <li><a href="{% url 'home' %}">Home</a></li>
+                <li><a href="{% url 'categories' %}">Categories</a></li>
+                <li><a href="{% url 'blog' %}">Blogs</a></li>
+                {% if user.is_authenticated %}
+                <li><a href="{% url 'customer' %}">Profile</li></a>
+                {% if request.user.customer.is_vendor %}
+                <li><a href="{% url 'vendor' %}">Vendor</li></a>
+                {%else%}
+                <li><a href="{% url 'vendor_application' %}">Be a Vendor</li></a>
+                {% endif %}
+                <li><a href="{% url 'logout'%}">Logout</a></li>
+                {% else %}
+                <li><a href="{% url 'login'%}">Login</a></li>
+                {% endif %}
+            </ul>
+        </div>
+
+
+        <a href=""><img id="logo" src="{% static 'img/blue.png'%}" alt="Logo" /></a>
+    </nav>
+
+    {% block content%}
+
+    {% endblock %}
+    <script src="{% static 'index.js' %}"></script>
+</body>
+
+</html>

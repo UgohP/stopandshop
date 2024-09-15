@@ -1,0 +1,16 @@
+{% extends 'vendor/vendor_base.html'%}
+{%block title%}Post New Blog{%endblock%}
+{% block content %}
+<div id="create_product" class="tabcontent">
+    <div>
+       <a href="{% url 'create_blog_video'%}"><input type="submit" value="Click here to for video blog"></a> 
+        <form method="post" id="form" action="" enctype="multipart/form-data">
+            {% csrf_token%}
+            {{form.as_p}}
+            <input type="submit" value="Create">
+        </form>
+        <a href="{% url 'my_blog'%}"><input type="submit" value="Cancel" style="background-color: red;"></a>
+
+    </div>
+</div>
+{% endblock%}

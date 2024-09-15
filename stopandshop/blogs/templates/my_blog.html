@@ -1,0 +1,68 @@
+{% extends 'vendor/vendor_base.html'%}
+
+{%block title%}Blog History{%endblock%}
+{% block content %}
+{% load static%}
+<link rel="stylesheet" href="{% static 'blog.css'%}">
+<div class="clearfix">
+    <a href="{% url 'vendor' %}"><button type="button" class="backbtn">Go Back</button></a>
+    <a href="{% url 'create_blog'%}"><button type="submit" class="createbtn">Create New Blog</button></a>
+</div>
+<br>
+<div id="history" class="tabcontent">
+    <div id="blog" class="tabcontent">
+        <br>
+        <div class="message">
+            <center>
+                {% for message in messages %}
+                <strong>
+                    <p>{{message}}</p>
+                </strong>
+                {% endfor %}
+            </center>
+        </div>
+
+        <section id="product1" class="section-p1">
+            <h2>Newsletter</h2>
+
+            <div class="pro-container">
+                {% for blog in blog %}
+                <a href="">
+                    <div class="pro">
+                        <img id="pro_img" src="{{blog.imageURL}}" alt="product image">
+                        <div class="des">
+                            <span>{{blog.business_name|capfirst}}</span>
+                        </div>
+                        <a href="{% url 'update_blog' blog.id %}"><button id="update">update</button></a>
+                        <a href="{% url 'delete_blog' blog.id %}"><button id="delete">delete</button></a>
+                    </div>
+                </a>
+                {% endfor %}
+            </div>
+
+        </section>
+    </div>
+
+    <section id="product1" class="section-p1">
+
+        <div class="pro-container">
+            {% for blog_video in blog_video %}
+            <div>
+                <video width="320" height="240" controls>
+                    <source src="{{blog_video.videoURL}}" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <div class="des">
+                    <span>{{blog_video.business_name|capfirst}}</span>
+                </div>
+                <div>
+                    <a href="{% url 'update_blog_video' blog_video.id %}"><button id="update">update</button></a>
+                    <a href="{% url 'delete_blog_video' blog_video.id %}"><button id="delete">delete</button></a>
+                </div>
+            </div>
+            {%endfor%}
+        </div>
+    </section>
+
+    {% endblock%}
+</div>

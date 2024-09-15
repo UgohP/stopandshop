@@ -1,0 +1,312 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{%block title%}HomePage{% endblock%}
+{%block meta%}
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Are you a an online vendor, or someone offering valuable services such as
+electrician work, hair dressing, tailoring, and more? Buy and Sell on BlueMartin; join our vibrant commumity at BlueMartin and showcase
+your goods and services to a wide audience. Visit the BlueMartin Technology Online Vendor Website to experience a seamless online shopping
+experience. ">
+<meta name="keywords" content="Buy and Sell on BlueMartin">
+<meta name="author" content="BlueMartin Technology">
+<!-- Add other meta tags here as needed -->
+
+<!-- Open Graph meta tags for social sharing (example) -->
+<meta property="og:title" content="BlueMartin">
+<meta property="og:description" content="Are you a an online vendor, or someone offering valuable services such as
+electrician work, hair dressing, tailoring, and more? Buy and Sell on BlueMartin; join our vibrant commumity at BlueMartin and showcase
+your goods and services to a wide audience. Visit the BlueMartin Technology Online Vendor Website to experience a seamless online shopping
+experience.">
+<meta property="og:image" content="{% static 'img/blue.png'%}">
+<meta property="og:url" content="https://bluemartin.ng">
+
+
+{%endblock%}
+<!-- Favicon (icon in the browser tab) -->
+<link rel="icon" type="image/png" href="{% static 'img/blue.png'%}">
+
+
+<link rel="stylesheet" href="{% static 'homepage.css' %}">
+
+
+{% block content %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'homepage.css' %}">
+
+<!-- Slideshow container -->
+<section id="hero">
+    {%for carousel in carousel%}
+    <div class="slideshow-container section-p1">
+        <div class="mySlides">
+            <img class="pic" src="{{carousel.carousel.url}}" width="100%">
+        </div>
+        {% endfor %}
+</section>
+
+<br>
+
+<center>
+    <h2>CATEGORIES</h2>
+</center>
+<section id="category" class="section-p1">
+    {% for category in category %}
+    <a href="{% url 'categories' %}">
+        <div class="cat-box">
+            <img id="cat-img" src="{{category.category_image.url}}" alt="Avatar">
+            <h6><b>{{category.category_name}} </b></h6>
+        </div>
+        <!-- <ul>
+                <li>
+                    <div id="img-border">
+                        <img id="img" src="{{category.category_image.url}}" alt="Avatar" width="100px">
+                    </div>
+                    <div>
+                        <center>
+                            <h4><b>{{category.category_name}}</b></h4>
+                        </center>
+                    </div>
+                </li>
+            </ul> -->
+        <!-- </div> -->
+    </a>
+    {% endfor %}
+</section>
+<hr style="border: ridge blue;"><br>
+<section id="product1" class="section-p1">
+    <h2> Featured Products</h2>
+    <p>HIGHLIGHTS ON SOME PRODUCTS</p>
+
+    <div class="pro-container">
+        {% for product in product %}
+        <a href="{% url 'get_fashion' product.id%}">
+            <div class="pro">
+                <img id="pro_img" src="{{product.imageURL}}" alt="product image">
+                <div class="des">
+                    <a
+                        href="{% url 'vendor_detail' product.created_by.id %}"><span>{{product.created_by.business_name|capfirst}}</span></a>
+                    <h5>{{product.product_name|capfirst}}</h5>
+                    <h4>&#8358 {{product.price}} <span>({{product.haggle}})</span></h4>
+                </div>
+                <a href="https://wa.me/{{product.created_by.business_whatsapp_number}}"><button class="icon">
+                        <h6>Chat on WhatsApp</h6>
+                    </button></a>
+            </div>
+        </a>
+        {% endfor %}
+    </div>
+</section>
+<hr style="border: ridge blue;"><br>
+<!-- {% for image in product.image_set.all%}
+    {% endfor %} -->
+
+<!-- {% for category in category %} -->
+<!-- <div> -->
+<!-- <center>
+            <h4><b>{{category.category_name}}</b></h4>
+        </center> -->
+<!-- </div> -->
+
+
+<!-- {% for subs in category.subs_set.all %} -->
+<!-- {% endfor%} -->
+<!-- {{subs.sub_category_name}} -->
+<!-- {% endfor %} -->
+
+<!-- <div class="sub-category">
+            {% for category in category %}
+            <div>
+                <center>
+                    <h4><b>{{category.category_name}}</b></h4>
+                </center>
+            </div>
+            <ul>
+                {% for fields in category.fields_set.all %}
+                <li>
+                    {{fields.field_name}}
+                </li>
+                {% endfor%}
+            </ul>
+            {% endfor %}
+        </div> -->
+
+<section id="banner" class=".section-p1">
+    <h4>Crypto Trade</h4>
+    <h2>Buy and Sell your Cryto</h2>
+    <a href="https://wa.me/08172596000"><button id="crpto-btn">Chat on WhatsApp</button></a>
+</section>
+<br>
+
+<hr style="border: ridge blue;"><br>
+<section id="product1" class="section-p1">
+    <h2> What's on Today's Menu?</h2>
+    <p>HIGHLIGHTS ON FOOD & SNACKS</p>
+
+    <div class="pro-container">
+        {% for food in food %}
+        <a href="{% url 'get_food' food.id%}">
+            <div class="pro">
+                <img id="pro_img" src="{{food.imageURL}}" alt="product image">
+                <div class="des">
+                    <a
+                        href="{% url 'vendor_detail' food.food_vendor.id %}"><span>{{food.food_vendor.business_name|capfirst}}</span></a>
+                    <h5>{{food.food_name|capfirst}}</h5>
+                    <h4>&#8358 {{food.food_price}}</h4>
+                </div>
+                <a href="https://wa.me/{{food.food_vendor.business_whatsapp_number}}"><button class="icon">
+                        <h6>Chat on WhatsApp</h6>
+                    </button></a>
+            </div>
+        </a>
+        {% endfor %}
+    </div>
+
+</section>
+<br>
+<hr style="border: ridge blue;"><br>
+
+<section>
+    <div class="banner-box">
+        <h4>Groceries, Makeup, Fragrances, Toiletries,Home and Kitchen Equipments... </h4>
+        <h2>SUPERMARKET</h2>
+        <span>Your online Supermarket...</span>
+        <a href="{% url 'supermarket' %}"><button>Click Here</button></a>
+    </div>
+</section>
+<br>
+<hr style="border: ridge blue;"><br>
+
+<section>
+    <div class="banner-box banner-box2">
+        <h4>Mobile Phones and Accessories, Tables, Computers, Home Appliances.... </h4>
+        <h2>ELECTRONICS</h2>
+        <span>Get all kinds of Electronics....</span>
+        <a href="{% url 'electronic' %}"><button>Click Here</button></a>
+    </div>
+</section>
+<hr style="border: ridge blue;"><br>
+
+<!-- <section id="banner3" class="section-p1">
+        <a href="">
+            <div class="banner-box">
+                <h2>About BlueMartin</h2>
+            </div>
+        </a>
+        <a href="">
+            <div class="banner-box banner-boxA">
+                <h2>About BlueMartin</h2>
+            </div>
+        </a>
+        <a href="">
+            <div class="banner-box banner-boxB">
+                <h2 style="color: lightblue;">Buy & Sell on BlueMartin</h2>
+            </div>
+        </a>
+    </section> -->
+<!-- <hr style="border: ridge blue;"><br> -->
+
+<section id="product1" class="section-p1">
+    <h2>Newsletter</h2>
+
+    <div class="pro-container">
+        {% for blog in blog %}
+        <a href="{% url 'get_blog' blog.id %}">
+            <div class="pro">
+                <img id="pro_img" src="{{blog.imageURL}}" alt="product image">
+                <div class="des">
+                    <span>{{blog.business_name|capfirst}}</span>
+                </div>
+                <a href="{% url 'get_blog' blog.id %}"><button id="blog-icon">
+                        <h6>Click here for more details</h6>
+                    </button></a>
+            </div>
+        </a>
+        {% endfor %}
+    </div>
+</section>
+<hr style="border: ridge blue;">
+
+{% if user.is_authenticated%}
+<section id="newsletter" class="section-p1 section-m1">
+    <div class="newstext">
+        <h4>You want to sell on BlueMartin?</h4>
+        <p>You can be a vendor and sell your products here...</p>
+    </div>
+    <div class="vendor-btn">
+        <a href="{% url 'vendor_application' %}"><button>Click here to Apply</button></a>
+    </div>
+</section>
+<hr style="border: ridge blue;"><br>
+{%endif%}
+
+<section>
+    <div class="banner-box banner-box3">
+        <h4>Make-up artists, Graphic Designers, Mechanics & lots More....</h4>
+        <h2>SERVICES</h2>
+        <span>Meet differnt professioners in the various fields....</span>
+        <a href="{% url 'service' %}"><button>Click Here</button></a>
+    </div>
+</section>
+<hr style="border: ridge blue;"><br>
+
+<footer class="section-p1">
+    <div id="footer">
+        <div class="col">
+            <h4>Contact</h4>
+            <p><strong>Phone:</strong> 09074396241, 09032115646</p>
+
+            <div class="follow">
+                <h4>Follow us</h4>
+                <div class="social-icon">
+                    <a href="https://wa.me/08157981821"><img src="{% static 'img/whatsapp.png' %}" alt="whatsapp"
+                            width="20px"></a>
+                    <a href="https://instagram.com/bluemartintechnology"><img src="{% static 'img/instagram.jpg' %}"
+                            alt="instagram" width="20px"></a>
+                    <a href="https://x.com/bluemartintech"><img src="{% static 'img/x.jpg' %}" alt="" width="20px"></a>
+                    <a href="https://linkedin.com/in/ugohpaschal"><img src="{% static 'img/linkedin.png' %}" alt=""
+                            width="20px"></a>
+                    <a href="https://github.com/UgohP"><img src="{% static 'img/github.jpg' %}" alt="" width="20px"></a>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="col">
+            <h4>About</h4>
+            <a href="{% url 'bluemartin' %}">About Us</a>
+            <a href="{% url 'bluemartin' %}">Our Services</a>
+            <a href="{% url 'vendor_application'%}">Be A Vendor</a>
+            <a href="{% url 'bluemartin'%}">Contact Us</a>
+        </div>
+
+        {% if user.is_authenticated %}
+        <div class="col">
+            <h4>My Account</h4>
+            {% if request.user.customer.is_vendor %}
+            <a href="{% url 'vendor_profile' %}">My Profile</a>
+            {%endif%}
+            <a href="{% url 'logout'%}">Logout</a>
+            {% else %}
+            <a href="{% url 'login'%}">Login</a>
+            <a href="{% url 'signup'%}">Sign In</a>
+            <a href="">Help</a>
+        </div>
+    </div>
+    {% endif %}
+
+</footer>
+<center>
+    <!-- <div class="copyright"> -->
+    <p>Powered By BLUEMARTIN TECHNOLOGY</p>
+    <!-- </div> -->
+</center>
+<center>
+    <img src="{% static 'img/blue2.png'%}" alt="" width="30%">
+</center>
+
+
+<script src="{% static 'index.js' %}"></script>
+{% endblock %}

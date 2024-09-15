@@ -1,0 +1,26 @@
+{% extends 'base.html'%}
+{%block title%}Electronics{%endblock%}
+{%block content%}
+    <section id="product1" class="section-p1">
+        <h3>Electronics</h3>
+
+        <div class="pro-container">
+            {% for electronic in electronic %}
+            <a href="{% url 'get_electronic' electronic.id%}">
+                <div class="pro">
+                    <img id="pro_img" src="{{electronic.imageURL}}" alt="product image">
+                    <div class="des">
+                        <a href="{% url 'vendor_detail' electronic.electronics_vendor.id %}"><span>{{electronic.electronics_vendor.business_name|capfirst}}</span></a>
+                        <h5>{{electronic.electronics_name|capfirst}}</h5>
+                        <h4>&#8358 {{electronic.electronics_price|capfirst}}</h4>
+                    </div>
+                    <a href="https://wa.me/{{electronic.electronics_vendor.business_whatsapp_number}}"><button class="icon">Chat on Whatsapp</button></a>
+                </div>
+            </a>
+            {% empty%}
+            <h1>Coming soon</h1>
+            {% endfor %}
+        </div>
+
+    </section>
+{%endblock%}

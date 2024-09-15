@@ -1,0 +1,26 @@
+{% extends 'index.html' %}
+
+{%block content%}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'homepage.css' %}">
+</head>
+
+<body>
+    <section id="banner" class=".section-p1">
+        <h4>Crypto Trade</h4>
+        <h2>Buy and Sell your Cryto</h2>
+        <a href="https://wa.me/08172596000"><button id="crpto-btn">Chat on WhatsApp</button></a>
+
+    </section>
+</body>
+
+</html>
+{%endblock%}

@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{%block title%}Categories{%endblock%}
+{%load static%}
+
+    {% block content %}
+    <div>
+        <div class="tab">
+            <hr>
+            <a href="{% url 'fashion_category' %}"><button class="tablinks">Fashion</button></a>
+            <hr>
+            <a href="{% url 'food' %}"><button class="tablinks">Food</button></a>
+            <hr>
+            <a href="{% url 'supermarket' %}"><button class="tablinks">Supermarket</button></a>
+            <hr>
+            <a href="{% url 'electronic' %}"><button class="tablinks">Electronics</button></a>
+            <hr>
+            <a href="{% url 'crypto' %}"><button class="tablinks">Crypto</button></a>
+            <hr>
+            <a href="{% url 'service' %}"><button class="tablinks">Services</button></a>
+            <hr>
+            <a href="{% url 'home'%}" style="text-decoration: none;"><button class="tablinks">Back to Homepage</button>
+            </a>
+            <hr>
+    
+        </div>
+    </div>
+    {% endblock %}
