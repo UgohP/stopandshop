@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  {% load static %}
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{% static 'get_category/get_food.css'%}">
+  <title>Document</title>
+</head>
+
+<body>
+  <!-- Slideshow container -->
+  <div class="slideshow-container">
+    <center>
+      <!-- Full-width images with number and caption text -->
+      {% if services.imageURL %}
+      <div class="mySlides">
+        <img src="{{services.imageURL}}" style="width:50%">
+      </div>
+      {%endif%}
+
+      {% if services.image2URL %}
+      <div class="mySlides">
+        <img src="{{services.image2URL}}" style="width:50%">
+      </div>
+      {%endif%}
+
+      {% if services.image3URL %}
+      <div class="mySlides">
+        <img src="{{services.image3URL}}" style="width:50%">
+      </div>
+      {%endif%}
+
+      {% if services.image4URL %}
+      <div class="mySlides">
+        <img src="{{services.image4URL}}" style="width:50%">
+      </div>
+      {%endif%}
+
+      {% if services.image5URL %}
+      <div class="mySlides">
+        <img src="{{services.image5URL}}" style="width:50%">
+      </div>
+      {%endif%}
+    </center>
+
+
+    <!-- Next and previous buttons -->
+    {% if services.image2URL %}
+    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+    <a class="next" onclick="plusSlides(1)">&#10095;</a>
+    {%endif%}
+
+  </div>
+  <div class="text">{{services.profession|capfirst}}</div>
+  <br>
+
+
+<br>
+  <table>
+    <tr>
+      <th>Profession:</th>
+      <td>{{services.profession|capfirst}}</td>
+    </tr>
+    <tr>
+      <th>Location:</th>
+      <td>{{services.location|capfirst}}</td>
+    </tr>
+    <tr>
+        <th>Contact:</th>
+        <td>{{services.phone_number_1|capfirst}}, {{services.phone_number_2|capfirst}}</td>
+      </tr>
+    <tr>
+      <th>Haggle:</th>
+      <td>{{services.haggle|capfirst}}</td>
+    </tr>
+    <tr>
+      <th>Description:</th>
+      <td>{{srvices.description}}</td>
+    </tr>
+    <tr>
+      <th>Vendor:</th>
+      <td>{{services.service_vendor.business_name}}</td>
+    </tr>
+  </table>
+  <a href="{{services.service_vendor.whatsapp_url}}"><input class="input" type="submit" value="Chat On Whatsapp"></a>
+
+  <script src="{% static 'get_category_js/get_food.js'%}"></script>
+</body>
+
+</html>

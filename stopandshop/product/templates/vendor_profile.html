@@ -1,0 +1,34 @@
+{% extends 'vendor/base.html'%}
+
+{% block content %}
+<div class="clearfix">
+    <a href="{% url 'vendor' %}"><button type="button" class="backbtn">Go Back</button></a>
+    <a href="{% url 'home'%}"><button type="submit" class="createbtn">HomePage</button></a>
+</div>
+<center>
+    {% for message in messages %}
+    <p>{{message}}</p>
+    {% endfor %}
+</center>
+
+<center>
+    <h3><i>Your Profile</i></h3>
+<div class="card">
+    <img src="{{request.user.vendor.imageURL}}" alt='No Picture' style="width:100%">
+</div>
+</center>
+
+    <div id="vendor_profile" class="tabcontent">
+        <div>
+            <form method="post" id="form" action="" enctype="multipart/form-data">
+                {% csrf_token%}
+                {{form.as_p}}
+
+                <input type="submit">
+                <a href="{% url 'home' %}">
+                </a>
+            </form>
+
+        </div>
+    </div>
+{% endblock%}

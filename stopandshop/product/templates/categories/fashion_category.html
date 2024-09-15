@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'homepage.css' %}">
+</head>
+
+<body>
+    <section id="product1" class="section-p1">
+        <center>
+            <h2>FASHION CATEGORIES</h2>
+        </center>
+        <div id="category" class="section-p1">
+            {% for fashion in fashion %}
+            <a href="{% url 'fashion' fashion.fashion_category %}">
+                <div class="cat-box">
+                    <img id="cat-img" src="{{fashion.category_image.url}}" alt="BlueMartin">
+                    <h6><b>{{fashion.fashion_category}}</b></h6>
+                </div>
+            </a>
+            {% endfor %}
+        </div>
+
+
+        
+</body>
+
+</html>

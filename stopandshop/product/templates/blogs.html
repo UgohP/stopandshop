@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'blog.css' %}">
+
+
+{% block content %}
+<section id="product1" class="section-p1">
+    <h2>Newsletter</h2>
+
+    <div class="pro-container">
+        {% for blog in blog %}
+        <a href="{% url 'get_blog' blog.id %}">
+            <div class="pro">
+                <img id="pro_img" src="{{blog.imageURL}}" alt="product image">
+                <div class="des">
+                    <span>{{blog.business_name|capfirst}}</span>
+                </div>
+                <a href="{% url 'get_blog' blog.id %}"><button  id="blog-icon">
+                        <h6>Click here for more details</h6>
+                    </button></a>
+            </div>
+        </a>
+        {% endfor %}
+    </div>
+</section>
+{% endblock %}
+
+
+    <script src="{% static 'categories.js'%}"></script>

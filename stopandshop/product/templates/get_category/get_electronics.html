@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  {% load static %}
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{% static 'get_category/get_food.css'%}">
+  <title>Document</title>
+</head>
+
+<body>
+  <!-- Slideshow container -->
+  <div class="slideshow-container">
+    <center>
+      <!-- Full-width images with number and caption text -->
+      {% if electronic.imageURL %}
+      <div class="mySlides">
+        <img src="{{electronic.imageURL}}" style="width:50%">
+      </div>
+      {%endif%}
+
+      {% if electronic.image2URL %}
+      <div class="mySlides">
+        <img src="{{electronic.image2URL}}" style="width:50%">
+      </div>
+      {%endif%}
+
+      {% if electronic.image3URL %}
+      <div class="mySlides">
+        <img src="{{electronic.image3URL}}" style="width:50%">
+      </div>
+      {%endif%}
+
+      {% if electronic.image4URL %}
+      <div class="mySlides">
+        <img src="{{electronic.image4URL}}" style="width:50%">
+      </div>
+      {%endif%}
+
+      {% if electronic.image5URL %}
+      <div class="mySlides">
+        <img src="{{electronic.image5URL}}" style="width:50%">
+      </div>
+      {%endif%}
+    </center>
+
+
+    <!-- Next and previous buttons -->
+    {% if electronic.image2URL %}
+    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+    <a class="next" onclick="plusSlides(1)">&#10095;</a>
+    {%endif%}
+
+  </div>
+  <div class="text">{{electronic.electronics_name|capfirst}}</div>
+  <br>
+
+
+<br>
+  <table>
+    <tr>
+      <th>Name:</th>
+      <td>{{electronic.electronics_name|capfirst}}</td>
+    </tr>
+    <tr>
+      <th>Price:</th>
+      <td>&#8358 {{electronic.electronics_price|capfirst}}</td>
+    </tr>
+    <tr>
+      <th>Haggle:</th>
+      <td>{{electronic.haggle|capfirst}}</td>
+    </tr>
+    <tr>
+      <th>Description:</th>
+      <td>{{electronic.electronics_description}}</td>
+    </tr>
+    <tr>
+      <th>Vendor:</th>
+      <td>{{electronic.electronics_vendor.business_name}}</td>
+    </tr>
+  </table>
+  <a href="{{electronic.electronics_vendor.whatsapp_url}}"><input class="input" type="submit" value="Chat On Whatsapp"></a>
+
+  <script src="{% static 'get_category_js/get_food.js'%}"></script>
+</body>
+
+</html>

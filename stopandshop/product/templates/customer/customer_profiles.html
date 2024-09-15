@@ -1,0 +1,32 @@
+{% extends 'customer/base.html'%}
+
+{% block content %}
+<div class="clearfix">
+    <a href="{% url 'customer' %}"><button type="button" class="backbtn">Go Back</button></a>
+    <a href="{% url 'home'%}"><button type="submit" class="createbtn">HomePage</button></a>
+</div>
+
+<div id="profile" class="tabcontent">
+    <center>
+        {% for message in messages %}
+        <p>{{message}}</p>
+        {% endfor %}
+    </center>
+
+    <div>
+        <form method="post" id="form">
+            {% csrf_token%}
+            {{form.as_p}}
+
+            <!-- <input type="submit" value="Save Profile"> -->
+            <input type="submit">
+            <a href="{% url 'home' %}">
+            </a>
+        </form>
+        <!-- <h3>First Name: {{customer.first_name}}</h3>
+        <h3>Last Name: {{customer.last_name}}</h3>
+        <h3>Email: {{customer.email}}</h3>
+        <h3>Phone: {{customer.phone_number}}</h3> -->
+
+    </div>
+    {%endblock%}

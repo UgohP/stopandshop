@@ -1,0 +1,40 @@
+{% extends 'vendor/base.html'%}
+{% load static%}
+<link rel="stylesheet" href="{% static 'homepage.css'%}">
+{% block content %}
+<div class="clearfix">
+    <a href="{% url 'vendor' %}"><button type="button" class="backbtn">Go Back</button></a>
+    <a href="{% url 'create_blog'%}"><button type="submit" class="createbtn">Create New Blog</button></a>
+</div>
+<br>
+<div id="history" class="tabcontent">
+<div id="blog" class="tabcontent">
+
+    <center>
+        {% for message in messages %}
+        <p>{{message}}</p>
+        {% endfor %}
+    </center>
+
+    
+    <section id="product1" class="section-p1">
+    <h2>Newsletter</h2>
+
+    <div class="pro-container">
+        {% for blog in blog %}
+        <a href="">
+            <div class="pro">
+                <img id="pro_img" src="{{blog.imageURL}}" alt="product image">
+                <div class="des">
+                    <span>{{blog.business_name|capfirst}}</span>
+                </div>
+                <a href="{% url 'get_blog' blog.id %}"><button id="icon">
+                    <h6>Click here for more details</h6>
+                </button></a>
+            </div>
+        </a>
+        {% endfor %}
+    </div>
+</section>
+</div>
+{% endblock%}

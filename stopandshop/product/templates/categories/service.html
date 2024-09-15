@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'homepage.css' %}">
+</head>
+
+<body>
+    <section id="product1" class="section-p1">
+        <h3>24hrs Services</h3>
+
+        <div class="pro-container">
+            {% for services in services %}
+            <a href="{% url 'get_service' services.id %}">
+                <div class="pro">
+                    <img id="pro_img" src="{{services.imageURL}}" alt="product image">
+                    <div class="des">
+                        <span>{{services.service_vendor}}</span>
+                        <h5>{{services.profession}}</h5>
+                        <h4>{{services.location}}</h4>
+                    </div>
+                    <a href="{{services.service_vendor.whatsapp_url}}"><button class="icon">Chat on whatsapp</button></a>
+                </div>
+            </a>
+            {% empty%}
+            <h1>Coming soon</h1>
+            {% endfor %}
+        </div>
+
+    </section>
+</body>
+
+</html>

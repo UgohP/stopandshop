@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {%load static%}
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form method="post" action="" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div>
+            <div>
+                <h4>Add Blog</h4>
+            </div>
+            {%for field in form %}
+            <div>
+                <label for="">{{field.label}}</label>
+                {% if field.field.required %}
+                <span style="color: red;">*</span>
+                {%endif%}
+                {{field}}
+                {% if field.help_text %}
+                <small style="color: grey;">{{field.help_text}}</small>
+                {%endif%}
+                {% for error in fields.errors%}
+                <p style="color: red;">error</p>
+                {%endfor%}
+            </div>
+            {%endfor%}
+        </div>
+
+        {% with named_formsets.blogs as formset %}
+        {{formset.management_form}}
+        <tr id="blogs-__prefix__" class="hide_all">
+            {% for fields in formsets.empty_form.hidden_fields%}
+            {{fields}}
+            {%endfor%}
+
+            {% for fields in formset.empty_form.visible_fields%}
+            <td>{{fields}}</td>
+            {%endfor%}
+        </tr>
+    <div>
+        <h4>Add Images</h4>
+    </div>
+    {% for error in formset %}
+    <span style="color: red">{{error}}</span>
+    {%endfor%}
+    {% for formss in formset%}
+    {{formss.management_form}}
+    <tr id="images-{{forloop.counter0}}" class="hide_all">
+        {{formss.id}}
+        {% for field in forms.vissible_fields%}
+        <td>
+            {{field}}
+            {% for error in field.errors %}
+            <span style="color: red">{{error}}</span>
+            {% endfor %}
+        </td>
+        {% endfor%}
+    </tr>
+    {%endfor%}
+{%endwith%}
+<button type="submit">Create</button>
+    </form>
+</body>
+</html>

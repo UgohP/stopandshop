@@ -1,0 +1,39 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static%}
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="" method="post" enctype="multipart/form-data">
+        {% csrf_token%}
+
+        <div>
+            <h4>Create Blog</h4>
+        </div>
+
+        <div>
+            {{form.non_form_errors}}
+            {{form.as_p}}
+
+            <h4>Add Image</h4>
+            {{blog_file_formset.non_form_errors}}
+            {{blog_file_formset.management_form}}
+            {% for form in blog_file_formset %}
+                <div class="d-f;ex py-1 inline {{blog_file_formset.prefix}}">
+                    {{form.as_p}}
+                    {% if blog_file_formset.can_delete%}
+                    <div class="ml-4">{{form.DELETE}} {{form.DELETE.label}}</div>
+                    {%endif%}
+                </div>
+            {%endfor%}
+        </div>
+        <div class="mt-3 mb-5">
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+    </form>
+</body>
+</html> -->

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  {% load static %}
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{% static 'get_category/get_food.css'%}">
+  <title>Document</title>
+</head>
+
+<body>
+  <!-- Slideshow container -->
+  <div class="slideshow-container">
+    <center>
+      <!-- Full-width images with number and caption text -->
+      {% if food.imageURL %}
+      <div class="mySlides">
+        <img src="{{food.imageURL}}" style="width:50%">
+      </div>
+      {%endif%}
+
+      {% if food.image2URL %}
+      <div class="mySlides">
+        <img src="{{food.image2URL}}" style="width:50%">
+      </div>
+      {%endif%}
+
+      {% if food.image3URL %}
+      <div class="mySlides">
+        <img src="{{food.image3URL}}" style="width:50%">
+      </div>
+      {%endif%}
+
+      {% if food.image4URL %}
+      <div class="mySlides">
+        <img src="{{food.image4URL}}" style="width:50%">
+      </div>
+      {%endif%}
+
+      {% if food.image5URL %}
+      <div class="mySlides">
+        <img src="{{food.image5URL}}" style="width:50%">
+      </div>
+      {%endif%}
+    </center>
+
+
+    <!-- Next and previous buttons -->
+    {% if food.image2URL %}
+    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+    <a class="next" onclick="plusSlides(1)">&#10095;</a>
+    {%endif%}
+
+  </div>
+  <div class="text">{{food.food_name|capfirst}}</div>
+  <br>
+
+
+<br>
+  <table>
+    <tr>
+      <th>Food Name:</th>
+      <td>{{food.food_name|capfirst}}</td>
+    </tr>
+    <tr>
+      <th>Price:</th>
+      <td>&#8358 {{food.food_price|capfirst}}</td>
+    </tr>
+    <tr>
+      <th>Haggle:</th>
+      <td>{{food.haggle|capfirst}}</td>
+    </tr>
+    <tr>
+      <th>Description:</th>
+      <td>{{food.description}}</td>
+    </tr>
+    <tr>
+      <th>Food Vendor:</th>
+      <td>{{food.food_vendor.business_name}}</td>
+    </tr>
+  </table>
+  <a href="{{food.food_vendor.whatsapp_url}}"><input class="input" type="submit" value="Chat On Whatsapp"></a>
+
+  <script src="{% static 'get_category_js/get_food.js'%}"></script>
+</body>
+
+</html>

@@ -1,0 +1,73 @@
+{% extends 'vendor/base.html'%}
+
+
+{% block content%}
+{% load static%}
+<link rel="stylesheet" href="{% static 'blog.css'%}">
+
+<div class="slideshow-container">
+    <center>
+        <!-- Full-width images with number and caption text -->
+        {% if blog.imageURL %}
+        <div class="mySlides">
+            <img src="{{blog.imageURL}}" style="width:70%">
+        </div>
+        {%endif%}
+        
+        {% if blog.image2URL %}
+        <div class="mySlides">
+            <img src="{{blog.image2URL}}" style="width:70%">
+        </div>
+        {%endif%}
+        
+        {% if blog.image3URL %}
+        <div class="mySlides">
+            <img src="{{blog.image3URL}}" style="width:70%">
+        </div>
+        {%endif%}
+
+      {% if blog.image4URL %}
+      <div class="mySlides">
+          <img src="{{blog.image4URL}}" style="width:70%">
+        </div>
+        {%endif%}
+        
+        {% if blog.image5URL %}
+        <div class="mySlides">
+            <img src="{{blog.image5URL}}" style="width:70%">
+        </div>
+        {%endif%}
+    </center>
+    
+    
+    <!-- Next and previous buttons -->
+    {% if blog.image2URL %}
+    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+    <a class="next" onclick="plusSlides(1)">&#10095;</a>
+    {%endif%}
+    
+</div>
+<div class="text">{{blog.business_name|capfirst}}</div>
+<br>
+
+<div class="desc">{{blog.text}}</div>
+<br>
+
+<a href="{{blog.whatsapp_url}}"><input class="input" value="Chat On Whatsapp"></a>
+
+
+<!-- <center>
+    <div class="gallery">
+        <a target="_blank" href="{{blog.imageURL}}">
+            <img src="{{blog.imageURL}}" alt="image" width="600" height="400">
+        </a>
+    </center>
+    <br>
+    <div class="desc">{{blog.business_name|capfirst}}</div>
+    <br>
+    <div class="desc">{{blog.text}}</div>
+    
+    
+</div> -->
+<script src="{% static 'get_category_js/get_food.js'%}"></script>
+{% endblock%}

@@ -1,0 +1,49 @@
+
+
+<title>{{user.vendor.business_name}}</title>
+
+<hr style="border: ridge blue;"><br>
+<section id="product1" class="section-p1">
+    <h2> Featured Products</h2>
+    <p>HIGHLIGHTS ON SOME PRODUCTS</p>
+
+    <div class="pro-container">
+        {% for product in product.all %}
+        <a href="{% url 'get_fashion' product.id%}">
+            <div class="pro">
+                <img id="pro_img" src="{{product.imageURL}}" alt="product image">
+                <div class="des">
+                    <a href=""><span>{{product.created_by.business_name|capfirst}}</span></a>
+                    <h5>{{product.product_name|capfirst}}</h5>
+                    <h4>{{product.price}} <span>({{product.haggle}})</span></h4>
+                </div>
+                <a href="{{product.created_by.whatsapp_url}}"><button id="icon">
+                        <h6>Chat on whatsapp</h6>
+                    </button></a>
+            </div>
+        </a>
+        {% endfor %}
+    </div>
+</section>
+<hr style="border: ridge blue;"><br>
+
+<section id="product1" class="section-p1">
+    <h2>FOOD</h2>
+
+    <div class="pro-container">
+        {% for food in food_vendor.food.all %}
+        <a href="{% url 'get_food' food.id%}">
+            <div class="pro">
+                <img id="pro_img" src="{{food.imageURL}}" alt="product image">
+                <div class="des">
+                    <a href=""><span>{{food.food_vendor.business_name|capfirst}}</span></a>
+                    <h5>{{food.food_name|capfirst}}</h5>
+                    <h4>{{food.food_price}}</h4>
+                </div>
+                <a href="{{food.food_vendor.whatsapp_url}}"><button id="icon">
+                        <h6>Chat on whatsapp</h6>
+                    </button></a>
+            </div>
+        </a>
+        {% endfor %}
+    </div>

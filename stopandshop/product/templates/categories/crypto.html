@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'categories.css' %}">
+</head>
+
+<body>
+    <section id="product1" class="section-p1">
+        <h3>Trade your Cypto</h3>
+
+        <div class="pro-container">
+            {% for crypto in crypto %}
+            <a href="">
+                <div class="pro">
+                    <img id="pro_img" src="{{crypto.imageURL}}" alt="product image">
+                    <div class="des">
+                        <span>{{crypto.crypto_vendor|capfirst}}</span>
+                    </div>
+                    <a href=""><button id="icon">Chat on whatsapp</button></a>
+                </div>
+            </a>
+            {% empty%}
+            <h1>Coming soon</h1>
+            {% endfor %}
+        </div>
+
+    </section>
+</body>
+
+</html>

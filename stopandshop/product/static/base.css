@@ -1,0 +1,68 @@
+#logo{
+    width: 10%;
+
+}
+
+#header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#welcome{
+    margin-left: 10%;
+}
+.profile {
+    background: #0700c4;
+    width: 10%;
+    height: 100vh;
+    color: white;
+    position: fixed;
+    display: fixed;
+    top: 0;
+    left: 0;
+    float: left;
+    overflow: hidden;
+}
+
+.profile h2{
+    padding: 7px 0 0 5px;
+}
+
+#hr{
+    border: 1px solid #f1f1f1;
+    margin-top: 29px;
+}
+
+.hr{
+    border: 1px solid #f1f1f1;
+}
+
+.a{
+    text-decoration: none;
+    color: white;
+    transition: 0.1s ease;
+}
+.a:hover{
+    font-size: large;
+}
+#form {
+    margin-left: 40%;
+    padding-top: 10%;
+}
+
+button {
+    background-color: white;
+    color: blue;
+    font-weight: bolder;
+    padding: 8px 10px;
+    margin: 50px 0;
+    border: 1px solid blue;
+    cursor: pointer;
+    width: 80%;
+}
+
+button:hover{
+    background-color: blue;
+    color: white;
+}

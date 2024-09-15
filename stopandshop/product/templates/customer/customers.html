@@ -1,0 +1,24 @@
+{% extends 'customer/base.html'%}
+
+{% load static %}
+<title>{% block title%} {%endblock%}|BlueMartin</title>
+
+
+{% block content%}
+    <div class="tab">
+        <a href="{% url 'customer_profile' %}"><button class="tablinks active" onclick="openCity(event, 'profile')">Profile</button></a>
+        <hr>
+        <button class="tablinks" onclick="openCity(event, 'Paris')">Change Password</button>
+        <hr>
+        <a href="{% url 'home' %}"><button>Homepage</button></a>
+        <hr>
+        <a href="{% url 'logout'%}">
+            <button>logout</button>
+        </a>
+        <hr>
+    </div>
+
+    {% endblock %}
+    <script src="{% static 'categories.js'%}"></script>
+
+
