@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {% load static%}
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'vendor_application.css' %}">
+    <title>Vendor Application | BlueMartin</title>
+
+    {% block meta%}
+    <meta name="description" content="Are you a an online vendor, or someone offering valuable services such as
+    electrician work, hair dressing, tailoring, and more? Buy and Sell on BlueMartin; join our vibrant commumity at BlueMartin and showcase
+    your goods and services to a wide audience. Visit the BlueMartin Technology Online Vendor Website to experience a seamless online shopping
+    experience. ">
+    <meta name="keywords" content="Buy and Sell on BlueMartin">
+    <meta name="author" content="BlueMartin Technology">
+
+    <!-- Open Graph meta tags for social sharing (example) -->
+    <meta property="og:title" content="BlueMartin">
+    <meta property="og:description" content="Are you a an online vendor, or someone offering valuable services such as
+electrician work, hair dressing, tailoring, and more? Buy and Sell on BlueMartin; join our vibrant commumity at BlueMartin and showcase
+your goods and services to a wide audience. Visit the BlueMartin Technology Online Vendor Website to experience a seamless online shopping
+experience.">
+    <meta property="og:image" content="{% static 'img/blue.png'%}">
+    <meta property="og:url" content="https://bluemartin.ng/{% url 'vendor_application' %}">
+    {%endblock%}
+
+    <!-- Favicon (icon in the browser tab) -->
+    <link rel="icon" type="image/png" href="{% static 'img/blue.png'%}">
+</head>
+
+<body>
+    <div id="header">
+
+        <h3 style="color: blue;"><b>Sell on BlueMartin </b></h3>
+        <img style="width: 10%;" src="{% static 'img/blue.png'%}" alt="Logo" />
+    </div>
+    <hr class="hr">
+
+    <a href="{% url 'home'%}"><input type="submit" value="HomePage"></a>
+    <hr class="hr">
+    <form action="" method="post">
+        <div class="section-p1">
+            <h3>Be a Vendor</h3>
+            <p><strong>
+                    Are you a WhatApp vendor, an online seller, or someone offering valuable services such as
+                    electrician work, hair dressing, tailoring, and more?<br><br>Join our vibrant commumity at
+                    BlueMartin and showcase your goods and services to a wide audience.
+                </strong>
+            </p>
+            <br>
+            <h2><strong>Why Choose <span style="color: blue;"><strong>BlueMartin</span>?</strong></h2>
+            <ul>
+                <li>
+                    <h3><strong>Reach a Wider Audience:</strong></h3>
+                </li>
+                <p>Our platform connects you with customers actively seeking your products and services.</p>
+
+                <li>
+                    <h3><strong>Simple and Direct:</strong></h3>
+                </li>
+                <p>We make it easy for potential customers to contact you through WhatsApp.</p>
+
+                <li>
+                    <h3><strong>Promote Your Brand:</strong></h3>
+                </li>
+                <p>Showcase your offerings and build your brand presence on BlueMartin.</p>
+            </ul>
+            <br>
+            <h3><strong>How to Get Started</strong></h3>
+            <p>
+                Fill in the form below with the correct details or information.
+            </p>
+        </div>
+        <hr>
+        <h3 style="color: blue;"><b>Vendor Application Form</b></h3>
+        {% csrf_token%}
+        {{form.as_p}}
+        <input type="submit" value="Submit">
+    </form>
+
+</body>
+
+</html>

@@ -1,0 +1,41 @@
+{%extends 'base.html'%}
+
+{%block title%}Fashion{%endblock%}
+
+{%block content%}
+
+{%load static%}
+<link rel="stylesheet" href="{% static 'homepage.css'%}">
+
+<form class="search" action="" method="get">
+    <div id="filter">
+        {{myfilter.form.as_p}}
+    </div>
+    <center>
+        <button type="submit">Search</button>
+    </center>
+</form>
+
+<section id="product1" class="section-p1">
+    <div class="pro-container">
+        {% for product in product %}
+        <a href="{% url 'get_fashion' product.id%}">
+            <div class="pro">
+                <img id="pro_img" src="{{product.imageURL}}" alt="product image">
+                <div class="des">
+                    <a
+                        href="{% url 'vendor_detail' product.created_by.id %}"><span>{{product.created_by.business_name|capfirst}}</a>
+                    <h5>{{product.product_name|capfirst}}</h5>
+                    <h4>&#8358 {{product.price}} <span>({{product.haggle}})</span></h4>
+                </div>
+                <a href="https://wa.me/{{product.created_by.business_whatsapp_number}}"><button class="icon">
+                        <h6>Chat on whatsApp</h6>
+                    </button></a>
+            </div>
+        </a>
+        {% empty%}
+        <h1>Coming soon</h1>
+        {% endfor %}
+    </div>
+</section>
+{%endblock%}

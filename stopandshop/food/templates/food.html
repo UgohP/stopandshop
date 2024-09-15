@@ -1,0 +1,42 @@
+{% extends 'index.html' %}
+{%block title%}Food{%endblock%}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'homepage.css' %}">
+</head>
+
+<body>
+    <section id="product1" class="section-p1">
+        <h2> What's on Today's Menu?</h2>
+
+        <div class="pro-container">
+            {% for foods in foods %}
+            <a href="{% url 'get_food' foods.id%}">
+                <div class="pro">
+                    <img id="pro_img" src="{{foods.imageURL}}" alt="product image">
+                    <div class="des">
+                        <a href="{% url 'vendor_detail' foods.food_vendor.id %}"><span>{{foods.food_vendor.business_name|capfirst}}</span></a>
+                        <h5>{{foods.food_name}}</h5>
+                        <h4>&#8358 {{foods.food_price}}</h4>
+                    </div>
+                    <a href="https://wa.me/{{foods.food_vendor.business_whatsapp_number}}"><button class="icon">Chat on whatsApp</button></a>
+                </div>
+            </a>
+            {% empty%}
+            <h1>Coming soon</h1>
+            {% endfor %}
+        </div>
+
+    </section>
+</body>
+
+</html>
+{%endblock%}

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {% load static%}
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'vendor_application.css' %}">
+    <title>Upgrade To Premium Plan 2 | BlueMartin</title>
+    <!-- Favicon (icon in the browser tab) -->
+    <link rel="icon" type="image/png" href="{% static 'img/blue.png'%}">
+
+</head>
+
+<body>
+    <div id="header">
+
+        <h3 style="color: blue;"><b>UPGRADE TO PREMIUM 2</b></h3>
+        <img style="width: 10%;" src="{% static 'img/blue.png'%}" alt="Logo" />
+    </div>
+    <hr class="hr">
+
+    <a href="{% url 'home'%}"><input type="submit" value="HomePage"></a>
+    <hr class="hr">
+    <form action="" method="post">
+        <div class="section-p1">
+            <h2>Why Upgrade To Premium?</h2>
+            <p><strong>
+                    Choose the plan that suits your business needs. Upgrade to a premium plan to unlock additional
+                    features and benefits.
+                </strong>
+            </p>
+
+            <h3><strong>All premium plans include the following benefits:</h3>
+            <ul>
+                <li>
+                    Multi-category access: Choose from any combination of categories.
+                </li>
+                <li>
+                    Enhanced visibility in category listings.
+                </li>
+                <li>
+                    Priority customer support.
+                </li>
+                <li>
+                    Priority access to new features and updates.
+                </li>
+            </ul>
+
+            <h2>Premium Plan 2</h2>
+            <ul>
+                <li>
+                    Price:<br>
+                    &#8358 3,000/month <br>
+                    &#8358 30,000/year (save &#8358 6,000)
+                </li>
+                <li>
+                    Access to 3 categories of your choice.
+                </li>
+                <li>
+                    Access to Post Blogs or Ads/Adverts
+                </li>
+                <li>
+                    Top-tier listing in chosen categories.
+                </li>
+                <li>
+                    Dedicated customer support.
+                </li>
+                <li>
+                    Exclusive access to new features
+                </li>
+            </ul>
+
+            <br>
+            <h3><strong>Ready to boost your business on <span style="color: blue;"><strong>BlueMartin</span>? Upgrading
+                    is easy:</strong></h3>
+            <p>
+                Fill in the form below with the correct details or information. Then complete the payment process and
+                start enjoying the benefits of your premium plan.
+            </p>
+        </div>
+        <hr>
+        <h3 style="color: blue;"><b>Premium Plan 2 form</b></h3>
+        {% csrf_token%}
+        {{form.as_p}}
+
+        <p>Please note that you are not paying anything online. The account details for payment will be sent to you
+            either as SMS or to your Email or on WhatsApp.<br>Thank You!!!</p>
+
+
+        <input type="submit" value="Submit">
+    </form>
+
+</body>
+
+</html>

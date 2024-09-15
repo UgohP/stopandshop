@@ -1,0 +1,33 @@
+{%extends 'index.html'%}
+
+{%block title%}SuperMarket{%endblock%}
+{%block content%}
+
+    {% load static %}
+
+    <link rel="stylesheet" href="{% static 'homepage.css' %}">
+
+    <section id="product1" class="section-p1">
+        <h3>Your online SuperMarket</h3>
+
+        <div class="pro-container">
+            {% for supermarket in supermarket %}
+            <a href="{% url 'get_supermarket' supermarket.id %}">
+                <div class="pro">
+                    <img id="pro_img" src="{{supermarket.imageURL}}" alt="product image">
+                    <div class="des">
+                        <a href="{% url 'vendor_detail' supermarket.market_vendor.id %}"><span>{{supermarket.market_vendor.business_name|capfirst}}</a>
+                        <h5>{{supermarket.item_name|capfirst}}</h5>
+                        <h4>&#8358 {{supermarket.item_price|capfirst}}</h4>
+                    </div>
+                    <a href="https://wa.me/{{supermarket.market_vendor.business_whatsapp_number}}"><button class="icon">Chat on WhatsApp</button></a>
+                </div>
+            </a>
+            {% empty%}
+            <h1>Coming soon</h1>
+            {% endfor %}
+        </div>
+
+    </section>
+
+{%endblock%}

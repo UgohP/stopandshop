@@ -1,0 +1,86 @@
+{% extends 'index.html' %}
+{%block title%}{{supermarket.item_name|capfirst}}{%endblock%}
+
+{%block content%}
+
+  {% load static %}
+
+  <link rel="stylesheet" href="{% static 'get_food.css'%}">
+
+  <!-- Slideshow container -->
+  <div class="slideshow-container">
+    <center>
+      <!-- Full-width images with number and caption text -->
+      {% if supermarket.imageURL %}
+      <div class="mySlides">
+        <img src="{{supermarket.imageURL}}" style="width:50%">
+      </div>
+      {%endif%}
+
+      {% if supermarket.image2URL %}
+      <div class="mySlides">
+        <img src="{{supermarket.image2URL}}" style="width:50%">
+      </div>
+      {%endif%}
+
+      {% if supermarket.image3URL %}
+      <div class="mySlides">
+        <img src="{{supermarket.image3URL}}" style="width:50%">
+      </div>
+      {%endif%}
+
+      {% if supermarket.image4URL %}
+      <div class="mySlides">
+        <img src="{{supermarket.image4URL}}" style="width:50%">
+      </div>
+      {%endif%}
+
+      {% if supermarket.image5URL %}
+      <div class="mySlides">
+        <img src="{{supermarket.image5URL}}" style="width:50%">
+      </div>
+      {%endif%}
+    </center>
+
+
+    <!-- Next and previous buttons -->
+    {% if supermarket.image2URL %}
+    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+    <a class="next" onclick="plusSlides(1)">&#10095;</a>
+    {%endif%}
+
+  </div>
+  <div class="text">{{supermarket.item_name|capfirst}}</div>
+  <br>
+
+
+<br>
+  <table>
+    <tr>
+      <th>Name:</th>
+      <td>{{supermarket.item_name|capfirst}}</td>
+    </tr>
+    <tr>
+      <th>Price:</th>
+      <td>&#8358 {{supermarket.item_price|capfirst}}</td>
+    </tr>
+    <tr>
+      <th>Haggle:</th>
+      <td>{{supermarket.haggle|capfirst}}</td>
+    </tr>
+    <tr>
+      <th>Description:</th>
+      <td>{{supermarket.item_description}}</td>
+    </tr>
+    <tr>
+      <th>Vendor:</th>
+      <td>{{supermarket.market_vendor.business_name}}</td>
+    </tr>
+  </table>
+  <a href="https://wa.me/{{supermarket.market_vendor.business_whatsapp_number}}"><input class="input" type="submit" value="Chat On WhatsApp"></a>
+
+  <script src="{% static 'get_food.js'%}"></script>
+</body>
+
+</html>
+{%endblock%}

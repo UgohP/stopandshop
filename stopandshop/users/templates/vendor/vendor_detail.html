@@ -1,0 +1,218 @@
+{%load static %}
+{% block meta%}
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Are you a an online vendor, or someone offering valuable services such as
+electrician work, hair dressing, tailoring, and more? Buy and Sell on BlueMartin; join our vibrant commumity at BlueMartin and showcase
+your goods and services to a wide audience. Visit the BlueMartin Technology Online Vendor Website to experience a seamless online shopping
+experience. ">
+<meta name="keywords" content="Buy and Sell on BlueMartin">
+<meta name="author" content="BlueMartin Technology">
+
+<!-- Open Graph meta tags for social sharing (example) -->
+<meta property="og:title" content="BlueMartin">
+<meta property="og:description" content="{{vendor.business_name|capfirst}}">
+{%if vendor.business_logo_if_any%}
+<meta property="og:image" content="{{vendor.imageURL}}">
+{%endif%}
+<meta property="og:url" content="https://bluemartin.ng">
+{%endblock%}
+
+<!-- Favicon (icon in the browser tab) -->
+<link rel="icon" type="image/png" href="{% static 'img/blue.png'%}">
+
+<title>BlueMartin | {{vendor.business_name}}</title>
+{% load static %}
+<link rel="stylesheet" href="{% static 'homepage.css' %}">
+<br>
+<a href="{% url 'home'%}"><button id="index">Back to HomePage</button></a>
+<br><br>
+<hr style="border: ridge blue;"><br>
+<div class="vendor-id section-p1">
+    {%if vendor.business_logo_if_any%}
+    <img src="{{vendor.imageURL}}" alt="" style="max-width: 100px;">
+    {%endif%}
+    <h1 style="color: #000;">{{vendor.business_name|capfirst}}</h1>
+</div>
+
+<div id="grid-1">
+    <div class="section-p1">
+        <br>
+        <h4>State: {{vendor.state|capfirst}}</h4>
+        <br>
+        <h4>Location: {{vendor.location|capfirst}}</h4>
+    </div>
+
+    <div class="follow section-p1">
+        <h4>Follow on social media</h4><br>
+        <div class="social-icon">
+            {% if vendor.business_whatsapp_number %}
+            <a href="https://wa.me/{{vendor.business_whatsapp_number}}"><img src="{% static 'img/whatsapp.png' %}"
+                    alt="" width="30px"></a><br><br>
+            {%endif%}
+            {% if vendor.instagram_username %}
+            <a href="https://intagram.com/{{vendor.instagram_username}}"><img src="{% static 'img/instagram.jpg' %}"
+                    alt="" width="30px"></a><br><br>
+            {%endif%}
+            {% if vendor.X_or_twitter_username %}
+            <a href="https://x.com/{{vendor.X_or_twitter_username}}"><img src="{% static 'img/x.jpg' %}" alt=""
+                    width="30px"></a><br><br>
+            {%endif%}
+        </div>
+    </div>
+</div>
+
+<hr style="border: ridge blue;"><br>
+{% if vendor.fashion_vendors.all %}
+<section id="product1" class="section-p1">
+    <h2>FASHION PRODUCTS</h2>
+    <div class="pro-container">
+        {% for product in vendor.fashion_vendors.all %}
+        <a href="{% url 'get_fashion' product.id%}">
+            <div class="pro">
+                <img id="pro_img" src="{{product.imageURL}}" alt="product image">
+                <div class="des">
+                    <span>{{product.created_by.business_name|capfirst}}</span>
+                    <h5>{{product.product_name|capfirst}}</h5>
+                    <h4>&#8358 {{product.price}} <span>({{product.haggle}})</span></h4>
+                </div>
+                <a href="https:/wa.me/{{product.created_by.business_whatsapp_number}}"><button class="icon">
+                        <h6>Chat on whatsApp</h6>
+                    </button></a>
+            </div>
+        </a>
+
+        {% endfor %}
+    </div>
+</section>
+<hr style="border: ridge blue;"><br>
+{%endif%}
+
+{% if vendor.food_vendors.all %}
+<section id="product1" class="section-p1">
+    <h2> FOOD</h2>
+
+    <div class="pro-container">
+        {% for foods in vendor.food_vendors.all %}
+        <a href="{% url 'get_food' foods.id%}">
+            <div class="pro">
+                <img id="pro_img" src="{{foods.imageURL}}" alt="product image">
+                <div class="des">
+                    <a
+                        href="{% url 'vendor_detail' foods.food_vendor.id %}"><span>{{foods.food_vendor.business_name|capfirst}}</span></a>
+                    <h5>{{foods.food_name}}</h5>
+                    <h4>&#8358 {{foods.food_price}}</h4>
+                </div>
+                <a href="https:/wa.me/{{foods.food_vendor.business_whatsapp_number}}"><button class="icon">chat on
+                        whatsApp</button></a>
+            </div>
+        </a>
+        {% endfor %}
+    </div>
+
+</section>
+<hr style="border: ridge blue;"><br>
+{%endif%}
+
+{%if vendor.electronics_vendor.all %}
+<section id="product1" class="section-p1">
+    <h3>Electronics</h3>
+
+    <div class="pro-container">
+        {% for electronic in vendor.electronics_vendor.all %}
+        <a href="{% url 'get_electronic' electronic.id%}">
+            <div class="pro">
+                <img id="pro_img" src="{{electronic.imageURL}}" alt="product image">
+                <div class="des">
+                    <a
+                        href="{% url 'vendor_detail' electronic.electronics_vendor.id %}"><span>{{electronic.electronics_vendor.business_name|capfirst}}</span></a>
+                    <h5>{{electronic.electronics_name|capfirst}}</h5>
+                    <h4>&#8358 {{electronic.electronics_price|capfirst}}</h4>
+                </div>
+                <a href="https:/wa.me/{{electronic.electronics_vendor.business_whatsapp_number}}"><button
+                        class="icon">Chat on
+                        whatsApp</button></a>
+            </div>
+        </a>
+
+        {% endfor %}
+    </div>
+
+</section>
+<hr style="border: ridge blue;"><br>
+{%endif%}
+
+{% if vendor.market_vendors.all %}
+<section id="product1" class="section-p1">
+    <h3>SUPERMARKET</h3>
+
+    <div class="pro-container">
+        {% for supermarket in vendor.market_vendors.all %}
+        <a href="{% url 'get_supermarket' supermarket.id %}">
+            <div class="pro">
+                <img id="pro_img" src="{{supermarket.imageURL}}" alt="product image">
+                <div class="des">
+                    <a
+                        href="{% url 'vendor_detail' supermarket.market_vendor.id %}"><span>{{supermarket.market_vendor.business_name|capfirst}}</a>
+                    <h5>{{supermarket.item_name|capfirst}}</h5>
+                    <h4>&#8358 {{supermarket.item_price|capfirst}}</h4>
+                </div>
+                <a href="https:/wa.me/{{supermarket.market_vendor.business_whatsapp_number}}"><button class="icon">Chat
+                        on whatsApp</button></a>
+            </div>
+        </a>
+
+        {% endfor %}
+    </div>
+
+</section>
+<hr style="border: ridge blue;"><br>
+{%endif%}
+
+{%if vendor.service_vendors.all%}
+
+<section id="product1" class="section-p1">
+    <h3>24hrs Services</h3>
+
+    <div class="pro-container">
+        {% for service in vendor.service_vendors.all %}
+        <a href="{% url 'get_service' service.id %}">
+            <div class="pro">
+                <img id="pro_img" src="{{service.imageURL}}" alt="product image">
+                <div class="des">
+                    <span>{{service.service_vendor.business_name}}</span>
+                    <h5>{{service.profession}}</h5>
+                    <h4>{{service.location}}</h4>
+                </div>
+                <a href="https:/wa.me/{{service.service_vendor.business_whatsapp_number}}"><button class="icon">Chat on
+                        whatsApp</button></a>
+            </div>
+        </a>
+
+        {% endfor %}
+    </div>
+
+</section>
+<hr style="border: ridge blue;"><br>
+
+{%endif%}
+
+
+<div class="follow section-p1">
+    <h4>Follow on social media</h4><br>
+    <div class="social-icon">
+        {% if vendor.business_whatsapp_number %}
+        <a href="https://wa.me/{{vendor.business_whatsapp_number}}"><img src="{% static 'img/whatsapp.png' %}" alt=""
+                width="30px"></a><br><br>
+        {%endif%}
+        {% if vendor.instagram_username %}
+        <a href="https://intagram.com/{{vendor.instagram_username}}"><img src="{% static 'img/instagram.jpg' %}" alt=""
+                width="30px"></a><br><br>
+        {%endif%}
+        {% if vendor.X_or_twitter_username %}
+        <a href="https://x.com/{{vendor.X_or_twitter_username}}"><img src="{% static 'img/x.jpg' %}" alt=""
+                width="30px"></a><br><br>
+        {%endif%}
+    </div>
+</div>

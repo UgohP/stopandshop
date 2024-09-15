@@ -1,0 +1,35 @@
+{% extends 'index.html'%}
+
+{%block title%}Services{%endblock%}
+{%block content%}
+
+
+<head>
+    {% load static %}
+
+    <link rel="stylesheet" href="{% static 'homepage.css' %}">
+
+    <section id="product1" class="section-p1">
+        <h3>24hrs Services</h3>
+
+        <div class="pro-container">
+            {% for service in service %}
+            <a href="{% url 'get_service' service.id %}">
+                <div class="pro">
+                    <img id="pro_img" src="{{service.imageURL}}" alt="product image">
+                    <div class="des">
+                        <span>{{service.service_vendor.business_name}}</span>
+                        <h5>{{service.profession}}</h5>
+                        <h4>{{service.location}}</h4>
+                    </div>
+                    <a href="{{service.service_vendor.business_whatsapp_number}}"><button class="icon">Chat on WhatsApp</button></a>
+                </div>
+            </a>
+            {% empty%}
+            <h1>Coming soon</h1>
+            {% endfor %}
+        </div>
+
+    </section>
+
+{%endblock%}

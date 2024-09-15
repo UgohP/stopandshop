@@ -1,0 +1,80 @@
+{% extends 'vendor/vendor_base.html'%}
+{%load static%}
+{% block title%}Vendor's Page{%endblock%}
+{%block meta%}
+<!-- Open Graph meta tags for social sharing (example) -->
+<meta property="og:title" content="BlueMartin">
+<meta property="og:description" content="{{vendor.business_name|capfirst}}">
+{%if vendor.business_logo_if_any%}
+<meta property="og:image" content="{{vendor.imageURL}}">
+{%endif%}
+<meta property="og:url" content="https://bluemartin.ng">
+{%endblock%}
+
+<!-- Favicon (icon in the browser tab) -->
+<link rel="icon" type="image/png" href="{% static 'img/blue.png'%}">
+{% block content%}
+
+<div class="tab">
+    <a href="{% url 'vendor_profile' %}"><button class="tablinks"
+            onclick="openCity(event, 'vendor_profile')">Profile</button></a>
+    {% if request.user.vendor.fashion_vendor %}
+    <hr>
+    <a href="{% url 'history'  %}"><button class="tablinks"
+            onclick="openCity(event, 'create_product')">Fashion</button></a>
+    {%endif%}
+    {% if request.user.vendor.food_vendor %}
+    <hr>
+    <a href="{% url 'food_history' %}"><button class="tablinks"
+            onclick="openCity(event, 'create_blog')">Food</button></a>
+    {%endif%}
+    {% if request.user.vendor.supermarket_vendor %}
+    <hr>
+    <a href="{% url 'supermarket_history' %}"><button class="tablinks" onclick="openCity(event, 'create_blog')">Super
+            Market</button></a>
+    {%endif%}
+    {% if request.user.vendor.electronics_vendor %}
+    <hr>
+    <a href="{% url 'electronic_history' %}"><button class="tablinks"
+            onclick="openCity(event, 'create_blog')">Electronics</button></a>
+    {%endif%}
+    {% if request.user.vendor.services_vendor %}
+    <hr>
+    <a href="{% url 'service_history'%}"><button class="tablinks"
+            onclick="openCity(event, 'create_blog')">Service</button></a>
+    {%endif%}
+    {% if request.user.vendor.crypto_vendor %}
+    <hr>
+    <a href=""><button class="tablinks" onclick="openCity(event, 'create_blog')">Crypto</button></a>
+    {%endif%}
+    {% if request.user.vendor.blog_vendor %}
+    <hr>
+    <a href="{% url 'my_blog'%}"><button class="tablinks" onclick="openCity(event, 'blog')">My Blogs</button></a>
+    {%endif%}
+    {% if request.user.vendor.premium_1 %}
+    {%else%}
+    <hr>
+    <a href="{% url 'premium1_application'%}"><button class="tablinks" onclick="openCity(event, 'blog')">Upgrade to Premium 1</button></a>
+    {%endif%}
+    {% if request.user.vendor.premium_2 %}
+    {%else%}
+    <hr>
+    <a href="{% url 'premium2_application'%}"><button class="tablinks" onclick="openCity(event, 'blog')">Upgrade to Premium 2</button></a>
+    {%endif%}
+    {% if request.user.vendor.premium_3 %}
+    {%else%}
+    <hr>
+    <a href="{% url 'premium3_application' %}"><button class="tablinks" onclick="openCity(event, 'blog')">Upgrade to Premium 3</button></a>
+    {%endif%}
+    <hr>
+    <!-- <button class="tablinks" onclick="openCity(event, 'Paris')">Change Password</button> -->
+    <!-- <hr> -->
+    <a href="{% url 'home' %}"><button>Homepage</button></a>
+    <hr>
+    <a href="{% url 'logout'%}">
+        <button>logout</button>
+    </a>
+    <hr>
+</div>
+
+{% endblock %}

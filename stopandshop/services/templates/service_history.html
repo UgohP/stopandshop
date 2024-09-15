@@ -1,0 +1,49 @@
+{% extends 'vendor/vendor_base.html'%}
+
+{%block title%}{%endblock%}
+{% block content %}
+<div class="clearfix">
+    <a href="{% url 'vendor' %}"><button type="button" class="backbtn">Go Back</button></a>
+    <a href="{% url 'create_service'%}"><button type="submit" class="createbtn">Create New Sale</button></a>
+</div>
+<br>
+<div id="history" class="tabcontent">
+    <br>
+    <div class="message">
+        <center>
+            {% for message in messages %}
+            <strong>
+                <p>{{message}}</p>
+            </strong>
+            {% endfor %}
+        </center>
+    </div>
+    <section id="product1" class="section-p1">
+        <h2> Your Products</h2>
+
+        <div class="pro-container">
+            {% for service in service %}
+            <a href="">
+                <div class="pro">
+                    <img id="pro_img" src="{{service.imageURL}}" alt="product image">
+                    <div class="des">
+                        <a
+                            href="{% url 'vendor_detail' service.service_vendor.id %}"><span>{{service.service_vendor|capfirst}}</span></a>
+                        <!-- <span>{{service.service_vendor}}</span> -->
+                        <h5>{{service.profession}}</h5>
+                        <h4>{{service.location}}</h4>
+                    </div>
+                    <a href="{% url 'update_service' service.id%}"><button id="update">update</button></a>
+                    <a href="{% url 'delete_service' service.id%}"><button id="delete">delete</button></a>
+                </div>
+            </a>
+            {% empty%}
+            <h1>Sorry, You have created any product yet!</h1>
+            {% endfor %}
+        </div>
+</div>
+</section>
+
+</div>
+
+{% endblock%}
